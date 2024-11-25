@@ -20,6 +20,11 @@ public class TodoController {
         return todoRepo.findAll();
     }
 
+    @GetMapping("/done")
+    public List<Todoitem> findDone() {
+        return todoRepo.findByDoneTrue();
+    }
+
     @PostMapping
     public Todoitem save(@RequestBody Todoitem todoitem) {
         if (todoitem.getVersion() == null) {
