@@ -49,5 +49,5 @@ Pour créer un élément, envoyez une requête POST à `/todo` avec le JSON suiv
 
 
 ## Auteur
-Arthur Guérin - Master à Epitech, ancien de la WebAcademie by Epitech.
+Arthur Guérin - En Master à Epitech (PreMsc), ancien de la WebAcademie by Epitech.
 
