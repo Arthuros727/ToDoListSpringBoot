@@ -17,7 +17,7 @@ Ce projet est une application de gestion de liste de tâches (Todo List) dévelo
 ## Installation
 1. Clonez le projet :
    ```bash
-   git clone 
+   git clone git@github.com:Arthuros727/ToDoListSpringBoot.git
    ```
 2. Accédez au répertoire du projet :
    ```bash
