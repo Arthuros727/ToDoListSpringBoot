@@ -3,6 +3,7 @@ package com.Arthur.TodoList.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Version;
 import org.antlr.v4.runtime.misc.NotNull;
 
 @Entity
@@ -12,11 +13,14 @@ public class Todoitem {
     @NotNull
     private String title;
     private boolean done;
+    @Version
+    private Long version;
 
-    public Todoitem(Long id, String title, boolean done) {
+    public Todoitem(Long id, String title, boolean done, Long version) {
         this.id = id;
         this.title = title;
         this.done = done;
+        this.version = version;
     }
 
     public Todoitem() {
@@ -45,5 +49,13 @@ public class Todoitem {
 
     public void setDone(boolean done) {
         this.done = done;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
     }
 }
