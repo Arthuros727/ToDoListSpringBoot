@@ -25,7 +25,25 @@ Ce projet est une application de gestion de liste de tâches (Todo List) dévelo
    ```
 3. Configurez la base de données MySQL.
    - Créez une base de données nommée `TodoList`.
-   - Mettez à jour le fichier `application.properties` avec vos identifiants MySQL.
+   - Mettez à jour le fichier `application.properties` avec vos identifiants MySQL. (ou créé le dans ressource ex :
+```txt
+
+spring.application.name=TodoList
+server.port=8082
+spring.datasource.url=jdbc:mysql://localhost:8889/TodoList
+spring.datasource.username=root
+spring.datasource.password=root
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+
+
+spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=create
+
+
+
+```
 4. Compilez et exécutez le projet avec Maven :
    ```bash
    mvn spring-boot:run
