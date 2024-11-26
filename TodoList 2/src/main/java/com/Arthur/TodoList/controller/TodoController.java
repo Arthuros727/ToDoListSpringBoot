@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
 @RestController
 @RequestMapping(value = "/todo")
 public class TodoController {
@@ -30,6 +29,7 @@ public class TodoController {
         if (todoitem.getVersion() == null) {
             todoitem.setVersion(1L);
         }
+
         return todoRepo.save(todoitem);
     }
 
@@ -40,10 +40,25 @@ public class TodoController {
 
         item.setTitle(newTodoitem.getTitle());
         item.setDone(newTodoitem.isDone());
-        item.setVersion(item.getVersion() + 1);
+        if (item.getVersion() == null) {
+            item.setVersion(1L);
+        }else {
+            item.setVersion(item.getVersion() + 1);
+        }
 
         Todoitem updatedTodoitem = todoRepo.save(item);
 
         return ResponseEntity.ok(updatedTodoitem);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        if (todoRepo.existsById(id)) {
+            todoRepo.deleteById(id);
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }
